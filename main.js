@@ -72,28 +72,28 @@ botonAgregar.addEventListener("click",() => {
 
 lista.addEventListener("click", function (event){
     const element = event.target;
-    const elementData = element.atributes.data.value;
-    if (elementData == "hecho"){
-        tareaRealizada(Element); 
+    const elementData = element.attributes.data.value;
+    if (elementData == "hecho") {
+        tareaRealizada(element); 
     } else if (elementData == "eliminar") {
         tareaEliminada(element);
     
     }; 
-    localStorage.setItem("TODO",JSON.stringify(LIST)); 
+    localStorage.setItem("TODO", JSON.stringify(LIST)); 
 
 });
 
 let data = localStorage.getItem ("TODO");
-if (data){
+if (data) {
     LIST = JSON.parse(data);
     id = LIST.length;
     cargarLista(LIST);
-} else{
+} else {
     LIST = [];
     id = 0;
 }
 
-function cargarLista(array){
+function cargarLista(array) {
     array.forEach(
         function (item){
             agregarTarea(item.nombre, item.id, item.hecho, item.eliminar);
